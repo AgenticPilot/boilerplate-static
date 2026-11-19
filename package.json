@@ -1,0 +1,41 @@
+{
+  "name": "boilerplate-static",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Boilerplate pour monorepos statiques multi-applications déployés sur GitHub Pages (HTML, CSS, JS natifs), basé sur boilerplates-ui.",
+  "scripts": {
+    "postinstall": "node scripts/vendor.js",
+    "dev": "node scripts/serve.js 4098",
+    "lint": "yarn lint:html && yarn lint:css && yarn lint:js",
+    "lint:html": "node scripts/lint-html.js",
+    "lint:css": "stylelint \"**/*.css\" --ignore-path .stylelintignore",
+    "lint:js": "eslint .",
+    "lint:fix": "stylelint \"**/*.css\" --ignore-path .stylelintignore --fix && eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:unit": "node --test \"tests/unit/**/*.test.js\"",
+    "test:e2e": "playwright test tests/e2e",
+    "test:a11y": "playwright test tests/a11y",
+    "test": "yarn test:unit && yarn test:e2e && yarn test:a11y"
+  },
+  "dependencies": {
+    "@kewinmarchand/boilerplates-ui": "github:kewinMarchand/boilerplates-ui#v0.13.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.64.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "globals": "^17.13.0",
+    "html-validate": "^10.11.2",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.8.0",
+    "stylelint-config-standard": "^41.0.0"
+  },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=26.13.0"
+  }
+}

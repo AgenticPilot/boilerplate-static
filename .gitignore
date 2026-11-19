@@ -1,0 +1,10 @@
+node_modules/
+.cache/
+.api/
+test-results/
+playwright-report/
+.lighthouseci/
+.DS_Store
+*.log
+yarn-error.log
+vendor/boilerplates-ui/
